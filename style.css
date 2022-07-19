@@ -4,14 +4,37 @@
     border: 0;
 }
 
+
 body {
     background-color: #d95550;
 }
 
-.tomato, .timer-box, .timer-box nav, .timer-box .timer {
+img {
+    width: 1rem;
+}
+
+
+header, .tomato, .timer-box, .timer-box nav, .timer-box .timer, nav, .btn-util {
     display: flex;
     justify-content: center;
     align-content: center;
+}
+
+header h1, header nav {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+header h1 {
+    font-size: 20px;
+    width: 415px;
+    
+}
+
+header nav {
+    gap: 0.7rem;
 }
 
 .tomato {
@@ -21,29 +44,105 @@ body {
 
 .timer-box {
     flex-direction: column;
-    background-color: #dd6662;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.9rem;
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem;
+    width: 500px;
+    border-radius: 5px;
     
-    width: 36%;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
-.timer-box nav {
-    gap: 2rem;
-}
 
 .timer-box .timer {
-    font-size: 9rem;
+    font-size: 8rem;
 }
 
-p, h1 {
+p, h1, button {
     color: white;
 }
 
 #count {
-    margin-top: 1rem;
+    margin-top: 1.2rem;
 }
-
-
 
 .current-timer {
-    border-bottom:2px solid white;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0 0);
 }
+
+.minutes, .seconds {
+    font-family: 'ArialRounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';;
+}
+
+
+.times {
+    padding: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 1rem;
+}
+
+#count {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn-util, img {
+    color: rgb(238, 238, 238);
+}
+
+
+.btn-util {
+    color: rgb(238, 238, 238);
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 7px;
+    padding-left: 12px;
+    padding-right: 12px;
+    gap: 4px;
+}
+
+.btn-util:hover, img:hover{
+    color: white;
+}
+
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+    border-radius: 5px;
+}
+
+#stop {
+    width: 11rem;
+    height: 3.5rem;
+    align-self: center;
+    background-color: white;
+    color: black;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    
+}
+

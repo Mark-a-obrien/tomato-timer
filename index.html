@@ -12,13 +12,19 @@
 
     <header>
         <h1>Tomato Timer</h1>
+
+        <nav>
+            <button class="btn-util" id="report"><img src="images/report.svg">Report</button>
+            <button class="btn-util" id="settings"><img src="images/settings.svg">Settings</button>
+            <button class="btn-util" id="login"><img src="images/login.svg">Login</button>
+        </nav>
     </header>
     <section class="tomato"> 
         <section class="timer-box">
             <nav>
-                <p id="pomodoro" data-timerType="pomodoro">Pomodoro</p>
-                <p id="shortBreak" data-timerType="shortBreak">Short Break</p>
-                <p id="longBreak" data-timerType="longBreak">Long Break</p>
+                <button class="times" id="pomodoro" data-timerType="pomodoro">Pomodoro</button>
+                <button class="times" id="shortBreak" data-timerType="shortBreak">Short Break</button>
+                <button class="times" id="longBreak" data-timerType="longBreak">Long Break</button>
             </nav>
 
             <section class="timer">
@@ -31,6 +37,8 @@
         </section>
 
         <p id="count">#0</p>
+
+        <p id="message">Time to focus!</p>
     </section>
 </body>
 </html>

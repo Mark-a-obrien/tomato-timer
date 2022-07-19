@@ -3,10 +3,11 @@ const seconds = document.querySelector("[data-time=seconds]");
 const stop = document.querySelector("#stop");
 const timerTypes = document.querySelectorAll("[data-timerType]");
 
+
 const times = {
-    pomodoro : "00",
+    pomodoro : "25",
     shortBreak : "05",
-    longBreak : "20"
+    longBreak : "15"
 } 
 
 // sets the timer
@@ -18,11 +19,11 @@ const setTime = (type, min) => {
     });
 
     if (type.id === "pomodoro")
-        setStyle("#d95550", "#dd6662"); 
+        setStyle("#d95550", "Time to focus!"); 
     else if (type.id === "shortBreak")
-        setStyle("#4c9195", "#5e9ca0");
+        setStyle("#4c9195", "Time for a break!");
     else 
-        setStyle("#457ca3", "#5889ac");
+        setStyle("#457ca3", "Time for a break!");
 
     type.classList.add("current-timer");
     minutes.textContent = min;
@@ -30,9 +31,10 @@ const setTime = (type, min) => {
 }
 
 // sets the styles of the page depdending on which timer type is selected
-const setStyle = (bodyColor, timerBoxColor) => {
+const setStyle = (bodyColor, msg) => {
     document.body.style.backgroundColor = bodyColor;
-    document.querySelector(".timer-box").style.backgroundColor = timerBoxColor;
+    document.querySelector("#message").textContent = msg
+    stop.style.color = document.body.style.backgroundColor;
 }
 
 
@@ -101,6 +103,21 @@ const checkIfTimerComplete = (min, sec) => {
 
 // default time
 setTime(timerTypes[0], times[timerTypes[0].id]);
+
+
+
+
+
+
+// ---------------Tasks----------------
+
+
+
+
+
+
+
+
 
 
 
