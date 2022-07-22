@@ -2,7 +2,7 @@ const minutes = document.querySelector("[data-time=minutes]");
 const seconds = document.querySelector("[data-time=seconds]");
 const stop = document.querySelector("#stop");
 const timerTypes = document.querySelectorAll("[data-timerType]");
-
+const alarm = new Audio("audio/alarm.wav");
 
 const times = {
     pomodoro : "25",
@@ -94,6 +94,7 @@ timerTypes.forEach((timer) => {
 // checks if the timer is done
 const checkIfTimerComplete = (min, sec) => {
     if (min <= 0 && sec <= 0) {
+        alarm.play();
         alert("Time to take a short break")
         stopTime();
         setTime(timerTypes[1], times[timerTypes[1].id]);
@@ -111,7 +112,11 @@ setTime(timerTypes[0], times[timerTypes[0].id]);
 
 // ---------------Tasks----------------
 
+// create task
 
+// edit task
+
+// delete task
 
 
 
