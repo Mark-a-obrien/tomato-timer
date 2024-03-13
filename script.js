@@ -2,8 +2,10 @@ const minutes = document.querySelector("[data-time=minutes]");
 const seconds = document.querySelector("[data-time=seconds]");
 const stop = document.querySelector("#stop");
 const timerTypes = document.querySelectorAll("[data-timerType]");
+const count = document.querySelector("#count");
 const alarm = new Audio("audio/alarm.wav");
 
+let currentTimerType = "pomodoro";
 const times = {
     pomodoro : "25",
     shortBreak : "05",
@@ -87,6 +89,8 @@ timerTypes.forEach((timer) => {
     timer.addEventListener("click", () => {
         setTime(timer, times[timer.id]);
         stopTime();
+        currentTimerType = timer.id;
+        console.log(currentTimerType);
     });
 })
 
@@ -95,9 +99,29 @@ timerTypes.forEach((timer) => {
 const checkIfTimerComplete = (min, sec) => {
     if (min <= 0 && sec <= 0) {
         alarm.play();
-        alert("Time to take a short break")
-        stopTime();
-        setTime(timerTypes[1], times[timerTypes[1].id]);
+
+        const setTimerType = (text, index) => {
+            alert(text);
+            stopTime();
+            setTime(timerTypes[index], times[timerTypes[index].id]);
+        }
+
+        if (currentTimerType === "pomodoro") {
+            let i = 1;
+            let text = "short";
+            if (countValue % 4 === 0) {i = 2; text="long"}
+            setTimerType(`Time to take a ${text} break`, i);  
+            addToCount();
+        } else {
+            setTimerType("Time to study", 0);
+        }
+
+        // switch (currentTimerType) {
+        //     case "pomodoro" : setTimerType("Time to take a short break", 1); break;
+        //     case "shortBreak" : setTimerType("Time to study", 0); break;
+        //     case "longBreak" : setTimerType("Time to study", 0); break;
+        // }
+
         return true;
     }
 }
@@ -106,6 +130,13 @@ const checkIfTimerComplete = (min, sec) => {
 setTime(timerTypes[0], times[timerTypes[0].id]);
 
 
+//Adds to count when a timer is complete.
+let countValue;
+const addToCount = () => {  
+    num = parseInt(count.textContent.substring(1,2));
+    countValue = num++;
+    count.textContent = `#${num}`;
+}
 
 
 
