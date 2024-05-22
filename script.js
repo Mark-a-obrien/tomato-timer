@@ -7,9 +7,9 @@ const alarm = new Audio("audio/alarm.wav");
 
 let currentTimerType = "pomodoro";
 const times = {
-    pomodoro : "25",
-    shortBreak : "05",
-    longBreak : "15"
+    pomodoro : {text: "pomodoro", time: "25"},
+    shortBreak : {text: "shortBreak", time: "05"},
+    longBreak : {text: "longBreak", time: "15"}
 } 
 
 // sets the timer
@@ -87,7 +87,7 @@ stop.addEventListener("click", () => {
 // adds a spacific time to each timer type
 timerTypes.forEach((timer) => {
     timer.addEventListener("click", () => {
-        setTime(timer, times[timer.id]);
+        setTime(timer, times[timer.id].time);
         stopTime();
         currentTimerType = timer.id;
         console.log(currentTimerType);
@@ -103,13 +103,17 @@ const checkIfTimerComplete = (min, sec) => {
         const setTimerType = (text, index) => {
             alert(text);
             stopTime();
-            setTime(timerTypes[index], times[timerTypes[index].id]);
+            setTime(timerTypes[index], times[timerTypes[index].id].time);
+            currentTimerType = times[timerTypes[index].id].text;
         }
 
         if (currentTimerType === "pomodoro") {
             let i = 1;
             let text = "short";
-            if (countValue % 4 === 0) {i = 2; text="long"}
+            if (countValue % 4 === 0) {
+                i = 2; 
+                text="long"
+            }
             setTimerType(`Time to take a ${text} break`, i);  
             addToCount();
         } else {
@@ -127,7 +131,7 @@ const checkIfTimerComplete = (min, sec) => {
 }
 
 // default time
-setTime(timerTypes[0], times[timerTypes[0].id]);
+setTime(timerTypes[0], times[timerTypes[0].id].time);
 
 
 //Adds to count when a timer is complete.
